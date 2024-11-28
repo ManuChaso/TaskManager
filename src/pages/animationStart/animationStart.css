@@ -1,0 +1,65 @@
+.animation-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100vh;
+    background-color: #4895B6;
+}
+
+.animation-logo{
+    font-family: 'Parkinsans';
+    font-size: 50px;
+    color: white;
+}
+
+.animation-checkbox{
+    display: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 5px solid white;
+}
+
+.animation-checkone{
+    position: absolute;
+    left: 3px;
+    top: 24px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transform: rotateZ(-135deg);
+    width: 20px;
+    height: 7px;
+    background-color: green;
+}
+
+.animation-checktwo{
+    position: absolute;
+    left: 13px;
+    top: 22px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transform: rotateZ(-45deg);
+    width: 0px;
+    height: 7px;
+    background-color: green;
+}
+
+@keyframes checkOne {
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 20px;
+    }
+}
+
+@keyframes checkTwo {
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 35px;
+    }
+}
