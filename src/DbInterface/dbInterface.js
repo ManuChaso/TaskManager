@@ -6,6 +6,7 @@ export default class DbInterface {
     }
 
     async getDB(){
+        console.log('Ahora')
         if(!this.db){
             this.db = await openDB(this.dbname)
         }

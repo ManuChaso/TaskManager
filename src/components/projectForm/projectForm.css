@@ -1,0 +1,71 @@
+.project-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 30%;
+    height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px -3px black;
+}
+
+.form-title{
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.project-form input {
+    width: 300px;
+    height: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(94, 184, 222, 0.5);
+    outline: none;
+}
+
+.project-form textarea {
+    width: 300px;
+    height: 100px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(94, 184, 222, 0.5);
+    outline: none;
+    resize: none;
+}
+
+.close-form{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    color: rgb(50, 50, 50);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.inputs-container{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.submit-button{
+    margin-top: 40px;
+    width: 200px;
+    height: 35px;
+    background-color: #4895B6;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
