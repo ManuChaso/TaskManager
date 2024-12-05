@@ -15,9 +15,9 @@
 }
 
 .form-title{
-    font-size: 25px;
     margin-top: 20px;
-    margin-bottom: 50px;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .project-form input {
@@ -60,8 +60,10 @@
     width: 80%;
 }
 
-.submit-button{
-    margin-top: 40px;
+.form-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 35px;
     background-color: #4895B6;

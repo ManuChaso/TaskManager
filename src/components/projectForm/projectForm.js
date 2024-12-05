@@ -1,4 +1,5 @@
 import printProjects from '../../utils/printProjects';
+import { dbInterface } from '../../../main';
 import './projectForm.css';
 
 
@@ -34,8 +35,35 @@ export default function projectForm(dbInterface){
     formTitle.textContent = 'Nuevo Proyecto';
     formTitle.className = 'form-title';
 
+    const importContainer = document.createElement('div');
+    importContainer.className = 'import-container';
+    const importLabel = document.createElement('label');
+    importLabel.textContent = 'Importar proyecto';
+    importLabel.className = 'form-button'
+    importLabel.setAttribute('for', 'file-input');
 
-    form.append(closeForm, formTitle)
+    const fileInput = document.createElement('input');
+    fileInput.id = 'file-input';
+    fileInput.type = 'file';
+    fileInput.style.display = 'none'
+
+    fileInput.addEventListener('change', (e) => {
+        if(e.target.files[0]){
+            const reader = new FileReader();
+
+            reader.addEventListener('load', async () => {
+                const data = JSON.parse(reader.result);
+                await dbInterface.createProject(data);
+                printProjects();
+                form.remove();
+            });
+
+            reader.readAsText(e.target.files[0])
+        }
+    })
+
+    importContainer.append(importLabel, fileInput)
+    form.append(closeForm, formTitle, importContainer)
 
     formInputs.forEach(input => {
         const inputsContainer = document.createElement('div');
@@ -53,7 +81,7 @@ export default function projectForm(dbInterface){
     })
 
     const submitButton = document.createElement('button');
-    submitButton.className = 'submit-button';
+    submitButton.className = 'form-button';
     submitButton.textContent = 'Guardar';
 
     submitButton.addEventListener('click', async (e) => {
@@ -87,7 +115,7 @@ export default function projectForm(dbInterface){
                 console.log('Project saved');
                 //Añadir notificación
                 form.remove();
-                printProjects(dbInterface, document.querySelector('.projects-container'))
+                printProjects()
             } catch (error) {
                 console.log('Error saving project', error)
             }

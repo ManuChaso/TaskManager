@@ -1,10 +1,9 @@
+import { dbInterface } from '../../../main';
 import createButton from '../../components/createButton/createButton';
 import projectForm from '../../components/projectForm/projectForm';
-import DbInterface from '../../DbInterface/dbInterface';
 import printProjects from '../../utils/printProjects';
 import './home.css';
 
-const dbInterface = new DbInterface('taskmanager');
 
 export default async function home(app){
 
@@ -36,9 +35,9 @@ export default async function home(app){
     const projectsContainer = document.createElement('ul');
     projectsContainer.className = 'projects-container';
 
-    printProjects(dbInterface, projectsContainer)
-
     homeContainer.append(homeLogo, searchContainer, createProjectButton, projectsContainer)
 
-    app.appendChild(homeContainer)
+    app.appendChild(homeContainer);
+
+    printProjects()
 }
