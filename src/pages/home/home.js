@@ -2,7 +2,9 @@ import { dbInterface } from '../../../main';
 import createButton from '../../components/createButton/createButton';
 import projectForm from '../../components/projectForm/projectForm';
 import printProjects from '../../utils/printProjects';
+import iconSearch from '../../assets/icons/search.png';
 import './home.css';
+
 
 
 export default async function home(app){
@@ -22,11 +24,15 @@ export default async function home(app){
     searchInput.placeholder = 'Buscar...';
     const searchButton = document.createElement('button');
     searchButton.className = 'search-button';
-    searchButton.textContent = 'Buscar'
 
+    const searchIcon = document.createElement('img');
+    searchIcon.className = 'search-icon'
+    searchIcon.src = iconSearch;
+
+    searchButton.appendChild(searchIcon)
     searchContainer.append(searchInput, searchButton)
 
-    const createProjectButton = createButton('home-button', () => {
+    const createProjectButton = createButton('create', () => {
         const form = projectForm(dbInterface);
 
         homeContainer.appendChild(form)

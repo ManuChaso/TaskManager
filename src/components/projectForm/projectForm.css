@@ -64,10 +64,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     width: 200px;
     height: 35px;
-    background-color: #4895B6;
+    /* background-color: var(--background-color); */
     border: none;
     border-radius: 5px;
-    color: white;
+    cursor: pointer;
+}
+
+.import-icon{
+    width: 40px;
 }

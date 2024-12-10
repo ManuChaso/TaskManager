@@ -3,6 +3,8 @@ import {dbInterface} from '../../../main'
 import './project.css';
 import printProjects from '../../utils/printProjects';
 import notification from '../../utils/notification';
+import show from '../../utils/show';
+import projectPage from '../../pages/projectPage/projectPage';
 
 export default function project(projectData, className){
     const projectContainer = document.createElement('li');
@@ -35,6 +37,10 @@ export default function project(projectData, className){
             }
         }},
     ]))
+
+    projectContainer.addEventListener('click', () => {
+        show((app) => projectPage(app, projectData.id))
+    })
 
     const projectName = document.createElement('p');
     projectName.textContent = `Nombre: ${projectData.name}`;

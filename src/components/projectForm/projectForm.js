@@ -1,5 +1,6 @@
 import printProjects from '../../utils/printProjects';
-import { dbInterface } from '../../../main';
+import importGif from '../../assets/icons/import.gif';
+import importImage from '../../assets/icons/import.png';
 import './projectForm.css';
 
 
@@ -38,9 +39,23 @@ export default function projectForm(dbInterface){
     const importContainer = document.createElement('div');
     importContainer.className = 'import-container';
     const importLabel = document.createElement('label');
-    importLabel.textContent = 'Importar proyecto';
+    importLabel.textContent = 'Importar proyecto'
     importLabel.className = 'form-button'
     importLabel.setAttribute('for', 'file-input');
+
+    const importIcon = document.createElement('img');
+    importIcon.className = 'import-icon';
+    importIcon.src = importImage;
+
+    importContainer.addEventListener('mouseover', () => {
+        importIcon.src = importGif
+    });
+
+    importContainer.addEventListener('mouseout', () => {
+        importIcon.src = importImage
+    })
+
+    importLabel.appendChild(importIcon)
 
     const fileInput = document.createElement('input');
     fileInput.id = 'file-input';
