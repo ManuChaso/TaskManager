@@ -30,6 +30,17 @@ export default async function projectPage(app, projectId){
     createNote.className = 'create-note';
     createNote.src = createImage;
 
+    const updateNote = async (note, index) => {
+        project.notes[index] = note;
+        await dbInterface.updateProject(project);
+        show((app) => projectPage(app, projectId))
+    }
+
+
+    // const updateTask = (task, index) => {
+    //     note[index] = task;
+    // }
+
     createNote.addEventListener('click', async () => {
         const template =  {
             name:'note',
@@ -52,8 +63,8 @@ export default async function projectPage(app, projectId){
     const notesContainer = document.createElement('div');
     notesContainer.className = 'notes-container';
 
-    project.notes.forEach(noteData => {
-        const noteElement = note(noteData);
+    project.notes.forEach((noteData, i) => {
+        const noteElement = note(noteData, i, updateNote);
         notesContainer.appendChild(noteElement)
     });
 

@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100svh;
-    background-color: #c47c00;
+    width: calc(100% - 100px);
+    height: calc(100svh - 100px);
+    padding: 50px;
+    background-color: #4895B6;
     background-image: url("https://www.transparenttextures.com/patterns/wine-cork.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .project-title{
@@ -20,6 +20,7 @@
     left: 20px;
     width: 50px;
     cursor: pointer;
+    z-index: 10;
 }
 
 .order-button{
@@ -36,6 +37,7 @@
     right: 100px;
     width: 50px;
     cursor: pointer;
+    z-index: 10;
 }
 
 .notes-container{

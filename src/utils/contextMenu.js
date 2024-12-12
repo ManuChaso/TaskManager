@@ -17,6 +17,7 @@ export default function contextMenu(e, options){
     options.forEach(option => {
         const element = document.createElement('li');
         element.textContent = option.text;
+        element.id = option.text;
         element.addEventListener('click', () => {
             option.callback();
             context.remove();
